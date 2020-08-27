@@ -125,5 +125,45 @@ namespace _102_PracticeTest1_Temperatures
                 
             }
         }
+
+        private void showMaxAverageTempToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // drawing objects
+            Graphics paper = pictureBoxDisplay.CreateGraphics();
+            SolidBrush br = new SolidBrush(Color.Green);
+            Pen pen1 = new Pen(Color.Black, 1);
+            int barWidth = 0;
+            int index = 0;
+            double max = temperaturesList[0].AveTemp;
+            
+            for(int i = 1; i < temperaturesList.Count; i++)
+            {
+                // check if whats in the list is greater than what is in the max variable 
+                if (temperaturesList[i].AveTemp > max)
+                {
+                    max = temperaturesList[i].AveTemp;
+                    index = i;
+                }
+            }
+            barWidth = (int)((max / 50) * pictureBoxDisplay.Width);
+            paper.FillRectangle(br, 0, index * (BAR_HEIGHT + GAP), barWidth, BAR_HEIGHT);
+           
+        }
+
+        private void buttonFindTemp_Click(object sender, EventArgs e)
+        {
+            foreach(Reading r in temperaturesList)
+            {
+                if (r.Date == textBoxDate.Text)
+                {
+                    MessageBox.Show(r.ToString());
+                }
+            }
+        }
+
+        private void buttonCount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
