@@ -34,6 +34,7 @@
             this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.listBoxData = new System.Windows.Forms.ListBox();
+            this.graphAverageTemperaturesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDisplay)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadFileToolStripMenuItem});
+            this.loadFileToolStripMenuItem,
+            this.graphAverageTemperaturesToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -85,6 +87,13 @@
             this.listBoxData.Name = "listBoxData";
             this.listBoxData.Size = new System.Drawing.Size(361, 382);
             this.listBoxData.TabIndex = 2;
+            // 
+            // graphAverageTemperaturesToolStripMenuItem
+            // 
+            this.graphAverageTemperaturesToolStripMenuItem.Name = "graphAverageTemperaturesToolStripMenuItem";
+            this.graphAverageTemperaturesToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.graphAverageTemperaturesToolStripMenuItem.Text = "Graph Average Temperatures";
+            this.graphAverageTemperaturesToolStripMenuItem.Click += new System.EventHandler(this.graphAverageTemperaturesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -114,6 +123,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadFileToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ListBox listBoxData;
+        private System.Windows.Forms.ToolStripMenuItem graphAverageTemperaturesToolStripMenuItem;
     }
 }
 

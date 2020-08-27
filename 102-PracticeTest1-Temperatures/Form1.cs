@@ -15,6 +15,9 @@ namespace _102_PracticeTest1_Temperatures
     {
         //Name:
         //ID:
+        const int BAR_HEIGHT = 10;
+        const int MAX_TEMP = 50;
+        const int GAP = 5;
 
         List<Reading> temperaturesList = new List<Reading>();
         public Form1()
@@ -96,6 +99,30 @@ namespace _102_PracticeTest1_Temperatures
                 MessageBox.Show(temperaturesList.Count.ToString());
 
                 UdateListBox();
+            }
+        }
+
+        private void graphAverageTemperaturesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // drawing objects
+            Graphics paper = pictureBoxDisplay.CreateGraphics();
+            SolidBrush br = new SolidBrush(Color.Orange);
+            Pen pen1 = new Pen(Color.Black, 1);
+
+            double aveTemp = 0;
+            int barWidth;
+            int x = 0;
+            int y = 0;
+            foreach(Reading r in temperaturesList)
+            {
+                // aveTemp variable getting access to the Reading r object
+                // and pointing to the property AveTemp
+                aveTemp = r.AveTemp;
+                barWidth = (int)((aveTemp / 50) * pictureBoxDisplay.Width);
+                paper.FillRectangle(br, x, y, barWidth, BAR_HEIGHT);
+                paper.DrawRectangle(pen1, x, y, barWidth, BAR_HEIGHT);
+                y += BAR_HEIGHT + GAP;
+                
             }
         }
     }
