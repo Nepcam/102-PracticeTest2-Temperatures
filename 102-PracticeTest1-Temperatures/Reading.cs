@@ -22,17 +22,9 @@ namespace _102_PracticeTest1_Temperatures
         /// <param name="low">The low value for that date</param>
         public Reading(string date, double high, double low)
         {
-            // error check 
-            if (date != "")
-            {
-                _date = date;
-            }
-            else
-            {
-                throw new Exception("The date must be specified");
-            }
-            _high = high;
-            _low = low;
+            Date = date;
+            High = high;
+            Low = low;
         }
 
         // Properties***************************************************
@@ -43,6 +35,17 @@ namespace _102_PracticeTest1_Temperatures
         public string Date
         {
             get { return _date; }
+            set
+            {
+                if (value != "")
+                {
+                    _date = value;
+                }
+                else
+                {
+                    throw new Exception("The date must be specified");
+                }
+            }
         }
 
         /// <summary>
@@ -69,7 +72,16 @@ namespace _102_PracticeTest1_Temperatures
         /// <returns>All information as a neatly padded out string</returns>
         public override string ToString()
         {
-            return Date.PadRight(10) + High.ToString().PadRight(6) + Low;
+            return Date.PadRight(15) + High.ToString().PadRight(10) + Low.ToString().PadRight(10) + AverageTemp();
+        }
+
+        /// <summary>
+        /// Gets the average temperature for the date
+        /// </summary>
+        /// <returns>The average temperature</returns>
+        public double AverageTemp()
+        {
+            return (High + Low) / 2;
         }
     }
 }
