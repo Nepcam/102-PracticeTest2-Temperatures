@@ -136,6 +136,7 @@ namespace _102_PracticeTest1_Temperatures
             int index = 0;
             double max = temperaturesList[0].AveTemp;
             
+            // loop through the temperaturesList
             for(int i = 1; i < temperaturesList.Count; i++)
             {
                 // check if whats in the list is greater than what is in the max variable 
@@ -163,7 +164,19 @@ namespace _102_PracticeTest1_Temperatures
 
         private void buttonCount_Click(object sender, EventArgs e)
         {
+            double high = 0;
+            int count = 0;
 
+            high = double.Parse(textBoxHigh.Text);
+
+            foreach (Reading r in temperaturesList)
+            {
+                if (r.High > high)
+                {
+                    count++;
+                }
+            }
+            MessageBox.Show(count.ToString());
         }
     }
 }
